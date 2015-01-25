@@ -1,6 +1,6 @@
-Litesight-api coming soon
+Dogeight-api coming soon
 
-# *Litesight API*
+# *Dogesight API*
 
 *Litesight API* is an open-source Litecoin blockchain REST
 and websocket API. Litesight API runs in NodeJS and uses LevelDB for storage. 
