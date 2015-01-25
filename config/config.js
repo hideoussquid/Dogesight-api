@@ -24,13 +24,13 @@ var home = process.env.INSIGHT_DB || (getUserHome() + '/.dogecoin-insight');
 if (process.env.INSIGHT_NETWORK === 'livenet') {
   env = 'livenet';
   db = home;
-  port = '3000';
+  port = '2000';
   b_port = '22555';
   p2p_port = '22556';
 } else {
   env = 'testnet';
   db = home + '/testnet';
-  port = '3001';
+  port = '2001';
   b_port = '44555';
   p2p_port = '44556';
 }
