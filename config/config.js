@@ -19,7 +19,7 @@ function getUserHome() {
   return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 }
 
-var home = process.env.INSIGHT_DB || (getUserHome() + '/.dogesight');
+var home = process.env.INSIGHT_DB || (getUserHome() + '/.dogecoin-insight');
 
 if (process.env.INSIGHT_NETWORK === 'livenet') {
   env = 'livenet';
@@ -56,8 +56,8 @@ var isWin = /^win/.test(process.platform);
 var isMac = /^darwin/.test(process.platform);
 var isLinux = /^linux/.test(process.platform);
 if (!dataDir) {
-  if (isWin) dataDir = '%APPDATA%\\dogecoin\\';
-  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/dogecoin/';
+  if (isWin) dataDir = '%APPDATA%\\Dogecoin\\';
+  if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Dogecoin/';
   if (isLinux) dataDir = process.env.HOME + '/.dogecoin/';
 }
 dataDir += network === 'testnet' ? 'testnet3' : '';
