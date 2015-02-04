@@ -5,7 +5,7 @@ var config = require('../../config/config');
 // Set the initial vars
 var timestamp = +new Date(),
     delay = config.currencyRefresh * 60000,
-    bitstampRate = 0;
+    cryptsyusdRate = 0;
 
 exports.index = function(req, res) {
 
@@ -40,21 +40,21 @@ exports.index = function(req, res) {
 
   // Init
   var currentTime = +new Date();
-  if (bitstampRate === 0 || currentTime >= (timestamp + delay)) {
+  if (cryptsyusdRate === 0 || currentTime >= (timestamp + delay)) {
     timestamp = currentTime;
 
-    _request('https://www.bitstamp.net/api/ticker/', function(err, data) {
-      if (!err) bitstampRate = parseFloat(JSON.parse(data).last);
+    _request('https://www.cryptsy.com/api/v2/markets/182/ticker/', function(err, data) {
+      if (!err) cryptsyusdRate = parseFloat(JSON.parse(data).data.bid).toFixed(8);
 
       res.jsonp({
         status: 200,
-        data: { bitstamp: bitstampRate }
+        data: { cryptsyusd: cryptsyusdRate }
       });
     });
   } else {
     res.jsonp({
       status: 200,
-      data: { bitstamp: bitstampRate }
+      data: { cryptsyusd: cryptsyusdRate }
     });
   }
 };
